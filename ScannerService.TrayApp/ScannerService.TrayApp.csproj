@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWindowsForms>true</UseWindowsForms>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<!-- Embed EXE icon -->
+		<ApplicationIcon>Properties\app.ico</ApplicationIcon>
+		<Win32Icon>Properties\app.ico</Win32Icon>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="DotNetEnv" Version="3.1.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\ScannerService.Core\ScannerService.Core.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Copy .env.development for Debug builds -->
+		<None Include="..\.env.development" Condition="'$(Configuration)' == 'Debug'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>.env.development</Link>
+		</None>
+
+		<!-- Copy .env for Release builds -->
+		<None Include="..\.env" Condition="'$(Configuration)' == 'Release'">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>.env</Link>
+		</None>
+	</ItemGroup>
+
+</Project>

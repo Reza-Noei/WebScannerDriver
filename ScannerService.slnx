@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".env" />
+    <File Path=".env.development" />
+    <File Path="installer.iss" />
+  </Folder>
+  <Project Path="ScannerService.Api/ScannerService.Api.csproj" />
+  <Project Path="ScannerService.Core/ScannerService.Core.csproj" />
+  <Project Path="ScannerService.TrayApp/ScannerService.TrayApp.csproj" />
+</Solution>
